@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b14">
+<title>Minglely — Chat with Strangers</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+
+<header class="nav">
+  <a class="brand" href="#"><span>✦</span> Minglely</a>
+  <div class="nav-right"><span class="online"><i></i>Anonymous chat</span><button class="ghost" id="rulesBtn">Safety</button></div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">NO ACCOUNT • LANGUAGE MATCHING • 18+</div>
+    <h1>Talk to someone<br><em>new.</em></h1>
+    <p>One tap. One stranger. A fresh conversation from anywhere in the world.</p>
+  </div>
+
+  <div class="setup card">
+    <div class="mode-row">
+      <button class="mode active" data-mode="video">◉ Video</button>
+      <button class="mode" data-mode="text">▤ Text</button>
+    </div>
+    <label>Choose your language</label>
+    <div class="language-grid" id="languages"></div>
+    <label>Country</label>
+    <select id="country">
+      <option value="ANY">🌍 Anywhere</option>
+      <option>India</option><option>United States</option><option>United Kingdom</option>
+      <option>Canada</option><option>Australia</option><option>Japan</option><option>Germany</option>
+    </select>
+    <button id="startBtn" class="primary start">Start mingling <span>→</span></button>
+    <label class="age-confirm"><input id="ageConfirm" type="checkbox"> I confirm that I am 18 or older.</label><div class="note">We look for someone using the same language first. If no one is available after 60 seconds, matching can expand to other languages.</div>
+  </div>
+</section>
+
+<section class="features">
+  <div><span>⚡</span><h3>Instant matching</h3><p>Find a conversation without profiles, swiping, or waiting around.</p></div>
+  <div><span>◎</span><h3>Language matching</h3><p>Choose a language and meet someone looking to chat in it.</p></div>
+  <div><span>🛡</span><h3>Safety first</h3><p>Skip, mute and report controls are available during a chat.</p></div>
+</section>
+
+<section id="chat" class="chat hidden">
+  <div class="chat-top">
+    <button id="backBtn" class="icon">←</button>
+    <div><div class="stranger" id="partnerName">Stranger <span id="matchDot"></span></div><small id="matchInfo">Finding a match…</small></div>
+    <div class="chat-actions"><button id="reportBtn" class="ghost">Report</button><button id="skipBtn" class="primary small">Next →</button></div>
+  </div>
+
+  <div class="call-area">
+    <div class="video-grid">
+      <div class="video-card remote"><div class="waiting">Searching for someone…<span class="loader"></span></div><video id="remoteVideo" autoplay playsinline></video><div id="aiAvatar" class="ai-avatar hidden"><div class="ai-face"><span class="eye e1"></span><span class="eye e2"></span><span class="mouth"></span></div><b>Maya · Demo</b><small>Scripted demo partner · not live AI</small></div><span class="video-label">Stranger</span></div>
+      <div class="video-card local"><video id="localVideo" autoplay muted playsinline></video><span class="video-label">You</span></div>
+    </div>
+    <div class="text-panel">
+      <div id="messages" class="messages"><div class="system">Welcome. Be respectful and keep personal information private.</div></div>
+      <div id="typing" class="typing hidden">Stranger is typing…</div><div id="aiNotice" class="ai-notice hidden">🤖 Scripted demo partner — not a live AI or real person</div>
+      <form id="messageForm"><input id="messageInput" maxlength="2000" autocomplete="off" placeholder="Say hello…"><button>↑</button></form>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="muteBtn">🎙 Mute</button><button id="camBtn">📷 Camera</button><button id="stopBtn" class="danger">End chat</button>
+  </div>
+</section>
+
+<section class="faq">
+  <h2>Simple by design.</h2>
+  <details><summary>Do I need an account?</summary><p>No. This prototype starts without registration. For production, add optional accounts for preferences and premium features.</p></details>
+  <details><summary>How does matching work?</summary><p>The server looks for another person in the queue using the same mode and, where possible, overlapping interests.</p></details>
+  <details><summary>Can I skip someone?</summary><p>Yes. “Next” ends the current room and returns you to matching.</p></details>
+</section>
+</main>
+
+<footer>© 2026 Minglely • Built for conversation, not dating. • 18+ only</footer>
+<div id="toast" class="toast"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>
+
+

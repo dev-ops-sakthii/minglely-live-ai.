@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: minglely-chat
+    runtime: node
+    plan: 1c-2g
+    numInstances: 1
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
