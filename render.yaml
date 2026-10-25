@@ -2,7 +2,7 @@ services:
   - type: web
     name: minglely-chat
     runtime: node
-    plan: 1c-2g
+    plan: free
     numInstances: 1
     buildCommand: npm ci
     startCommand: npm start
@@ -11,3 +11,4 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+

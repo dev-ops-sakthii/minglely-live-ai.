@@ -19,11 +19,11 @@ This repository includes a Render Blueprint in `render.yaml`. To deploy:
 
 1. Push this project to a GitHub repository.
 2. In Render, choose **New → Blueprint** and connect that repository.
-3. Review the service named `minglely-chat` and confirm its paid 1 CPU / 2 GB plan, then apply the Blueprint.
+3. Review the service named `minglely-chat` and confirm the Free plan, then apply the Blueprint.
 4. Wait for the `/health` check to pass and open the generated `onrender.com` URL.
 5. For a custom domain, add it in the Render service settings and follow Render's DNS instructions.
 
-The Blueprint uses Node 24, `npm ci`, `npm start`, HTTPS provided by Render, WebSockets, and a health check. It intentionally uses one always-on instance because matchmaking state is held in memory. Do not increase the instance count until matchmaking has been moved to shared storage and reconnect behavior has been designed for it.
+The Blueprint uses Node 24, `npm ci`, `npm start`, HTTPS provided by Render, WebSockets, and a health check. The Free web service sleeps after 15 minutes without traffic and can take about a minute to wake. Restarts clear the in-memory matchmaking queue. This is for demos, not reliable production hosting.
 
 ## Current production limits
 
@@ -37,4 +37,5 @@ This is a deployable single-instance beta foundation, not a fully production-rea
 - A real AI provider if AI conversations are intended. The current fallback is a local scripted demo with browser speech synthesis, not a live AI model or generated video.
 
 Do not represent the current report flow, age checkbox, or scripted demo as human moderation, verified age, or an AI service.
+
 
